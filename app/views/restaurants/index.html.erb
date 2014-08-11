@@ -5,10 +5,12 @@
 	<h2><%= restaurant.name 	    %></h2>
 	<h2><%= restaurant.cuisine      %></h2>
 	<h2><%= restaurant.phone_number %></h2>
+	<%= link_to 'Edit Restaurant',edit_restaurant_path(restaurant) %>
+	<%= link_to 'Delete Restaurant', restaurant, method: 'DELETE' %>
 	<% end %>
 	<% else %>
  		<h1>No restaurants have been added</h1>
 <% end %>
 
-<%= link_to 'New Restaurant', new_restaurant_path %>
+<%= link_to 'New Restaurant',new_restaurant_path %>
 

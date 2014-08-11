@@ -52,5 +52,35 @@ feature 'input information' do
 		click_button('Create Restaurant') 
 		expect(page).to have_content('McDonalds')
 	end
+end
+feature 'update information' do
+
+	before(:each) do
+		Restaurant.create(name: 'McDonalds', cuisine: 'Fast food', phone_number: '07817596970')
+	end
+
+	scenario 'user can update the information on the database' do
+		visit('/restaurants')
+		click_link('Edit Restaurant')
+		fill_in 'Name', 				with: 'Macky D'  
+		fill_in 'Cuisine', 			with: 'Burgers'
+		fill_in 'Phone number', with: '07817596980' 		
+		click_button('Update Restaurant')
+		expect(page).to have_content('Macky D')
+	end	
+end
+
+	feature 'destroy information' do
+
+	before(:each) do
+		Restaurant.create(name: 'McDonalds', cuisine: 'Fast food', phone_number: '07817596970')
+	end
+
+	scenario 'user can destroy information on the database' do
+		visit('/restaurants')
+		expect(page).to have_content('McDonalds')
+		click_link('Delete Restaurant')		
+		expect(page).not_to have_content('McDonalds')
+	end	
 
 end
