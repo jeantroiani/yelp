@@ -1,7 +1,9 @@
 
 <% if @restaurants.any? %>
 	<% @restaurants.each do |restaurant| %>
-	<%= restaurant.name %>
+	<h2><%= restaurant.name 	    %></h2>
+	<h2><%= restaurant.cuisine      %></h2>
+	<h2><%= restaurant.phone_number %></h2>
 	<% end %>
 	<% else %>
  <h1>No restaurants have been added</h1>

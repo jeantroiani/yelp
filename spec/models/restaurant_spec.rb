@@ -1,5 +1,13 @@
 require 'rails_helper'
 
-RSpec.describe Restaurant, :type => :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+describe Restaurant, :type => :model do
+
+	it' should have restaurant after a creating one'do
+		expect(Restaurant.all.any?).to eq(false)
+		Restaurant.create(name: 'McDonalds')
+		expect(Restaurant.all.any?).to eq(true)
+	end  
+
 end
+
+

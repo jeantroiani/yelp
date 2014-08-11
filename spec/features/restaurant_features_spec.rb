@@ -24,3 +24,21 @@ feature 'Restaurants have been added' do
 	end
 
 end
+
+feature 'restaurant features' do 
+
+	before(:each) do
+		Restaurant.create(name: 'McDonalds', cuisine: 'Fast food', phone_number: '07817596970')
+	end
+
+	scenario 'restaurant has a type of cuisine' do
+		visit ('/restaurants')
+		expect(page).to have_content('Fast food')
+	end
+
+	scenario 'restaurant has a phone number' do
+		visit ('/restaurants')
+		expect(page).to have_content('07817596970')
+	end
+
+end
