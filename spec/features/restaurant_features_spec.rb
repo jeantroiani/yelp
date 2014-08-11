@@ -66,6 +66,7 @@ feature 'update information' do
 		fill_in 'Cuisine', 			with: 'Burgers'
 		fill_in 'Phone number', with: '07817596980' 		
 		click_button('Update Restaurant')
+		expect(page).to have_content('Record updated successfully')
 		expect(page).to have_content('Macky D')
 	end	
 end
@@ -79,8 +80,12 @@ end
 	scenario 'user can destroy information on the database' do
 		visit('/restaurants')
 		expect(page).to have_content('McDonalds')
-		click_link('Delete Restaurant')		
+		click_link('Delete Restaurant')	
+		expect(page).to have_content('Record have been deleted')	
 		expect(page).not_to have_content('McDonalds')
+
 	end	
+
+
 
 end
