@@ -31,7 +31,4 @@ class RestaurantsController < ApplicationController
 		redirect_to '/restaurants'
 	end
 
-
-
-
 end
