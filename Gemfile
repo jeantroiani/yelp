@@ -30,6 +30,8 @@ gem 'rspec-rails'
 
 gem 'capybara'
 
+gem 'rspec-collection_matchers'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 

@@ -1,5 +1,6 @@
 require 'rails_helper'
 
+
 feature 'Restaurants have not been added' do
 
 	scenario 'there is no restaurants showing' do
@@ -71,7 +72,7 @@ feature 'update information' do
 	end	
 end
 
-	feature 'destroy information' do
+feature 'destroy information' do
 
 	before(:each) do
 		Restaurant.create(name: 'McDonalds', cuisine: 'Fast food', phone_number: '07817596970')
@@ -85,5 +86,20 @@ end
 		expect(page).not_to have_content('McDonalds')
 
 	end	
+end
+
+feature 'validation of name' do
+
+
+	scenario 'restaurant cannot be added if name has less than three letters' do
+		visit('/restaurants')
+		expect(page).not_to have_content('Ma')
+		click_link('New Restaurant')
+		fill_in 'Name', with: 'Ma'
+		click_button('Create Restaurant')
+		expect(page).not_to have_content('Ma')
+
+	end	
+
 
 end
