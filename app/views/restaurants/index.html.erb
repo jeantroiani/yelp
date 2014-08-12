@@ -5,12 +5,23 @@
 	<h2><%= restaurant.name 	    %></h2>
 	<h2><%= restaurant.cuisine      %></h2>
 	<h2><%= restaurant.phone_number %></h2>
+		<% restaurant.reviews.each do |review| %>
+			<h2><%= review.review%><h2>
+		 	<h2><%= review.rating%><h2>
+	 	<%end%>
+
 	<%= link_to 'Edit Restaurant',edit_restaurant_path(restaurant) %>
 	<%= link_to 'Delete Restaurant', restaurant, method: 'DELETE' %>
+	<%= link_to 'Write review', new_restaurant_review_path(restaurant)%>
+	
 	<% end %>
+	
+
 	<% else %>
  		<h1>No restaurants have been added</h1>
 <% end %>
 
 <%= link_to 'New Restaurant',new_restaurant_path %>
+
+
 
