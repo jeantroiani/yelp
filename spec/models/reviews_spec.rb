@@ -16,8 +16,6 @@ RSpec.describe Review, :type => :model do
 			expect(review).to have(1).error_on(:rating)
 		end
 
-	
-		
 
 		it' shows an average of 2 reviews' do
 

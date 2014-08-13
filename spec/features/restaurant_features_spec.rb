@@ -100,8 +100,7 @@ feature 'validation of name' do
 		expect(page).not_to have_content('Ma')
 
 	end	
-	
-
-
 
 end
+
+

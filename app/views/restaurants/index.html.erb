@@ -1,32 +1,35 @@
 
-
+<div id='new_restaurant'>
 <%= link_to 'New Restaurant',new_restaurant_path %>
+</div>
 <br>
 
 <% if @restaurants.any? %>
 	<% @restaurants.each do |restaurant| %>
-	<article>
-		<div id='title'>
-			<spam id='name_restaurant'><%= restaurant.name%></spam>
-			<spam id='average'><%= star_rating(restaurant.average_rating) %></spam>
-		</div>
-		<div id='cuisine'>		  <%= restaurant.cuisine%></div>
-		<div id='phone'>		  <%= restaurant.phone_number %></div>
-		
-				<% restaurant.reviews.each do |review| %>
-				
-						<div id='review'><%= review.review%></div>
-					 	<div id='rating'><%= star_rating(review.rating)%></div>
-				<%end%>
-		
+		<article>
+			<div id='title'>
+				<spam id='name_restaurant'><%= restaurant.name%></spam>
+				<spam id='average'><%= star_rating(restaurant.average_rating) %></spam>
+			</div>
 
-		<div class='link'><%= link_to 'Edit Restaurant',edit_restaurant_path(restaurant) %></div>
-		<div class='link'><%= link_to 'Delete Restaurant', restaurant, method: 'DELETE' %></div>
-		<div class='link'><%= link_to 'Write review', new_restaurant_review_path(restaurant)%></div>
-		
+			<div id='cuisine'><%= restaurant.cuisine%></div>
+			<div id='phone'> <%= restaurant.phone_number %></div>
+		</article>
+			
+					<% restaurant.reviews.each do |review| %>
+					
+							<div id='review'><%= review.review%></div>
+						 	<div id='rating'><%= star_rating(review.rating)%></div>
+						 	<div id='likes'> <%= link_to 'Likes', review_likes_path(review), method: 'POST' %></div>
+						 	<div> <%= review.likes.count %></div>
+					<%end%>
+			
+
+			<div class='link'><%= link_to 'Edit Restaurant',edit_restaurant_path(restaurant) %></div>
+			<div class='link'><%= link_to 'Delete Restaurant', restaurant, method: 'DELETE' %></div>
+			<div class='link'><%= link_to 'Write review', new_restaurant_review_path(restaurant)%></div>			
 	<% end %>
-
-	<% else %>
+<% else %>
  		<h1>No restaurants have been added</h1>
 <% end %>
 
