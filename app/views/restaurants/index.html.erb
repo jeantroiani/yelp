@@ -6,14 +6,17 @@
 <% if @restaurants.any? %>
 	<% @restaurants.each do |restaurant| %>
 	<article>
-		<div id='name_restaurant'><%= restaurant.name%></div>
+		<div id='title'>
+			<spam id='name_restaurant'><%= restaurant.name%></spam>
+			<spam id='average'><%= star_rating(restaurant.average_rating) %></spam>
+		</div>
 		<div id='cuisine'>		  <%= restaurant.cuisine%></div>
 		<div id='phone'>		  <%= restaurant.phone_number %></div>
 		
 				<% restaurant.reviews.each do |review| %>
 				
 						<div id='review'><%= review.review%></div>
-					 	<div id='rating'><%= review.rating%></div>
+					 	<div id='rating'><%= star_rating(review.rating)%></div>
 				<%end%>
 		
 
