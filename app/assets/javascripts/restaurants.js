@@ -1,6 +1,6 @@
 
 $(document).ready(function(){
-	$("#show_reviews").click(function(){                     
+	$("#review_section #show_reviews").click(function(){
 		$(this).siblings('.review').slideToggle(function(){
 			if ($('.review').is(':visible')){
 				$('#show_reviews').text('Hide Reviews');	
