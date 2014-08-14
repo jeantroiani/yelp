@@ -34,7 +34,7 @@ gem 'rspec-collection_matchers'
 
 gem 'devise'
 
-gem 'warden'
+gem 'warden-rspec-rails', '~> 0.1.0'
 
 gem 'launchy'
 

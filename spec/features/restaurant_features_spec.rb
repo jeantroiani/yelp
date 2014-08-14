@@ -19,6 +19,15 @@ feature 'users have accounts' do
 	
 	end
 
+	scenario 'user can log out' do
+	jean = 	User.create(email: 'jean@troiani.com',password: '12345678', password_confirmation: '12345678') 
+	login_as jean
+  visit('/restaurants')
+	click_link'Sign out'
+	expect(page).to have_content('Signed out successfully.')
+
+	end
+
 
 end
 
