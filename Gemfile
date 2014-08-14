@@ -32,6 +32,12 @@ gem 'capybara'
 
 gem 'rspec-collection_matchers'
 
+gem 'devise'
+
+gem 'warden'
+
+gem 'launchy'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 

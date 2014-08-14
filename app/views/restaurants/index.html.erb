@@ -1,4 +1,4 @@
-
+m
 <div id='new_restaurant'>
 <%= link_to 'New Restaurant',new_restaurant_path %>
 </div>
@@ -15,7 +15,8 @@
 			<div id='cuisine'><%= restaurant.cuisine%></div>
 			<div id='phone'> <%= restaurant.phone_number %></div>
 		</article>
-			
+		<div class='review'>
+
 					<% restaurant.reviews.each do |review| %>
 					
 							<div id='review'><%= review.review%></div>
@@ -24,7 +25,7 @@
 						 	<div> <%= review.likes.count %></div>
 					<%end%>
 			
-
+		</div>
 			<div class='link'><%= link_to 'Edit Restaurant',edit_restaurant_path(restaurant) %></div>
 			<div class='link'><%= link_to 'Delete Restaurant', restaurant, method: 'DELETE' %></div>
 			<div class='link'><%= link_to 'Write review', new_restaurant_review_path(restaurant)%></div>			

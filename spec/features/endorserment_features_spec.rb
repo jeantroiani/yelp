@@ -11,7 +11,7 @@ describe 'liking reviews' do
 		it 'can click likes, updating the likes amount' do
 			visit('/restaurants')
 			click_link('Like')
-			expect(page).to have_content('Likes: 1')	
+			expect(page).to have_content('Likes 1')	
 		end
 
 
