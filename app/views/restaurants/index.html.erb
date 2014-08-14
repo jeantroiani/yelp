@@ -17,6 +17,9 @@
 			<div id='cuisine'><%= restaurant.cuisine%></div>
 			<div id='phone'> <%= restaurant.phone_number %></div>
 		</article>
+		<div>
+		<button id='show_reviews' class="button">Show reviews</button>
+		</div>
 		<div class='review'>
 
 					<% restaurant.reviews.each do |review| %>

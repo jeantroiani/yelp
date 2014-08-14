@@ -37,15 +37,15 @@ feature 'Reviews for restaurants' do
 		expect(page).to have_content('★★★★☆')	
 	end
 
-	# scenario 'shows reviews after clicking show reviews'do
-	# visit('/restaurants')
-	# click_link('Write review')
-	# fill_in('Write a review', with: 'Good!')
-	# click_button('Leave review')
-	# expect(page).not_to have_content('Good')
-	# click_link('Show Reviews')
-	# expect(page).not_to have_content('Good')
-	# end
+	scenario 'shows reviews after clicking show reviews'do
+	visit('/restaurants')
+	click_link('Write review')
+	fill_in('Write a review', with: 'Good!')
+	click_button('Leave review')
+	expect(page).not_to have_content('Good')
+	click_link('Show Reviews')
+	expect(page).to have_content('Good')
+	end
 
 
 
